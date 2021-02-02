@@ -1,0 +1,17 @@
+{
+  "name": "alagou-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "author": "Bruno Fernandes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "node": "^15.7.0",
+    "nodemon": "^2.0.7"
+  }
+}
