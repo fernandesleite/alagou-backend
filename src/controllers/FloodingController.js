@@ -29,6 +29,18 @@ exports.index = function(req, res) {
   })
 };
 
+exports.indexBounds = function(req, res) { 
+  Flooding.find({
+    latitude: {$gt: req.query.minlat, $lt: req.query.maxlat},
+    longitude: { $gt: req.query.minlng, $lt: req.query.maxlng}
+  }, (err, data) => {
+    if(err) {
+      return next(err);
+    }
+    res.send(data);
+  })
+}
+
 exports.show = function(req, res) {  
   Flooding.findById(req.params.id, (err, data) => {
     if(err) {
