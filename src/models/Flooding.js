@@ -9,4 +9,13 @@ let Flooding = new Schema({
   user: {type: String}
 });
 
+Flooding.virtual('userDetails', {
+  ref: 'User',
+  localField: 'user',
+  foreignField: 'idToken',
+  justOne: true
+})
+
+
+
 module.exports = mongoose.model('Flooding', Flooding);

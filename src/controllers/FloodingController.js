@@ -42,10 +42,15 @@ exports.indexBounds = function(req, res) {
 }
 
 exports.show = function(req, res) {  
-  Flooding.findById(req.params.id, (err, data) => {
-    if(err) {
-      return next(err);
+  Flooding.findById(req.params.id)
+  .populate('userDetails')
+  .exec(
+    (err, data) => {
+      data.user = data.userDetails.name
+      if(err) {
+        return res.send("erro");
+      }
+      res.send(data)
     }
-    res.send(data);
-  })
+  )
 };
